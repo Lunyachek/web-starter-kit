@@ -11,6 +11,7 @@ import DE from './modules/dots';
   // When DOM is ready
   $(() => {
     DE.dotsEffect();
+    $('.slider').slick();
   });
 
 })(jQuery);
