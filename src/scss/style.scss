@@ -319,7 +319,10 @@ a {
 			p {
 				margin-bottom: 20px;
 			}
-			input[type=text] {
+			form {
+				position: relative;
+			}
+			input[type=email] {
 				float: left;
 				width: calc(100% - 95px);
 				height: 41px;
@@ -328,6 +331,12 @@ a {
 				@include border-radius(10px 0 0 10px);
 				@include border-box;
 				padding: 5px 15px;
+				&+label {
+					color: red;
+					position: absolute;
+					left: 0;
+					top: 45px;
+				}
 			}
 			input[type=submit] {
 				background: #3e3e3e;
