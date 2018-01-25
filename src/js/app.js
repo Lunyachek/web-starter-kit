@@ -3,15 +3,31 @@
 // This file will be compiled into app.js and will not be minified.
 // Feel free with using ES6 here.
 
-import DE from './modules/dots';
-
 ( ($) => {
   'use strict';
 
   // When DOM is ready
   $(() => {
-    DE.dotsEffect();
-    $('.slider').slick();
+    $('.slider').slick({
+      vertical: true,
+      infinite: false,
+      nextArrow: '<div class="slick-prev slick-next"></div>',
+      prevArrow: '<div class="slick-prev slick-prev"></div>'
+    });
+
+    $(".see-all").click(function () {
+      $('.projects').after("<div class='projects p2'></div>");
+      $.getJSON("test.json", function (data) {
+        $.each(data, function (index, element) {
+          $('.p2').append("<div class='single-project'><img src='" + this.imgUrl + "'><div class='project-inner'><div></div><div class='icons'><a class='project-icon icon-view'></a><a class='project-icon icon-like'></a></div><div class='about-project'><strong>" + this.projectName + "</strong> <i>" + this.projectCategory + "</i> </div></div></div>");
+        });
+      });
+      $('html, body').animate({
+        scrollTop: $(".p2").offset().top
+      }, 1000);
+      $('.see-all').hide();
+    });
+
   });
 
 })(jQuery);
