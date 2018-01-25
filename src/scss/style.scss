@@ -149,6 +149,7 @@ a {
 	.slider {
 		overflow: hidden;
 		.slick-slide {
+			outline: none;
 			display: block;
 			font: 15px/24px 'Poppins';
 			.slide-title {
