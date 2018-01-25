@@ -45,7 +45,6 @@ ul, ol {
 @mixin transition() {
 	-webkit-transition: all 100ms linear;
 	-moz-transition: all 100ms linear;
-	-ms-transition: all 100ms linear;
 	-o-transition: all 100ms linear;
 	transition: all 100ms linear;
 }
@@ -106,6 +105,82 @@ a {
 				position: absolute;
 				left: 15px;
 				top: 25px;
+			}
+			.menu-btn {
+				cursor: pointer;
+				position: absolute;
+				right: 15px;
+				top: 20px;
+				width: 36px;
+				height: 30px;
+				&:before,
+				&:after {
+					content: "";
+					width: 100%;
+					height: 6px;
+					@include border-radius(5px);
+					background: #3e3e3e;
+					position: absolute;
+					left: 0;
+				}
+				&:before {
+					top: 0;
+				}
+				&:after {
+					bottom: 0;
+				}
+				span {
+					display: block;
+					width: 100%;
+					height: 6px;
+					@include border-radius(5px);
+					background: #3e3e3e;
+					position: absolute;
+					left: 0;
+					top: 50%;
+					margin-top: -3px;
+				}
+				b {
+					background: url("../images/plus-icon.png") no-repeat;
+					width: 35px;
+					height: 35px;
+					display: block;
+					position: absolute;
+					top: 12px;
+					left: 2px;
+					z-index: 100;
+				}
+			}
+			.mobile-menu {
+				position: absolute;
+				right: 15px;
+				top: 60px;
+				width: 280px;
+				text-align: center;
+				background: #e9e9e9;
+				box-shadow: 2px 3px 18px rgba(1, 1, 1, 0.5);
+				@include border-radius(5px);
+				overflow: hidden;
+				display: none;
+				ul {
+					padding: 10px;
+					li {
+						font-size: 20px;
+						line-height: 30px;
+						border-top: 1px solid #ccc;
+						&:first-child {
+							border-top: none;
+						}
+						a {
+							display: block;
+							padding: 3px 0;
+							text-decoration: none !important;
+						}
+					}
+				}
+			}
+			.menu-btn.active + .mobile-menu {
+				display: block;
 			}
 			h1 {
 				font: bold 40px/42px 'Arvo';
